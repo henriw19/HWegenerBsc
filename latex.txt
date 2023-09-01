@@ -1,0 +1,37 @@
+When moving to quantum systems, the problem gets less straightforward, as the state of a quantum system is not binary, but a superposition of the two states $\ket{0}$ and $\ket{1}$ with respective probability of $\alpha^2$ and $\beta^2$:
+
+\begin{equation}
+    \ket{\Psi} = \alpha\ket{0} + \beta\ket{1}
+\end{equation}
+We no longer talk about $bits$ but $qubits$.
+The range of possible errors is a continuous range of rotations of the original state which can be digitised in terms of the Pauli matrices $\sigma_i$ and depicted as a (unitary)???? transformation on the $Bloch sphere$.
+Similar to defining a code by s set of parity checks, one can determine the $stabilizers\, S_i$  of a quantum code. These are operators to which the input state is an eigenvector:
+\begin{equation}
+    S\ket{\Psi} = \ket{\Psi}
+\end{equation}
+One can express the stabilizers of a n-qubit code as a $n$-fold tensor product of Pauli operators $\sigma_i. 
+Pauli operators are unitary, hermite operators on \math{F^2} that fulfill the following conditions:
+\begin{equation}
+    \sigma_i ^2 = \math{1} 
+    [\sigma_i,\sigma_j] = 2i\epsilon_{ijk}\sigma_k
+\end{equation}
+They have eigenvalues $\pm$ 1. The set of stabilizers of a code form an abelian subgroup of the $n$-fold Pauli group $\Sigma$, meaning they all commute with one another.
+This condition translates to any two stabilizers intersecting non-trivially on an $even$ number of qubits.
+The codespace is defined as the simultaneous +1 eigenspace of all stabilizers. 
+What even makes quantum error correction possible, is the digitasion of errors on a $n$-qubit code in terms of $n$ Pauli matrices. therefore it is sufficient to only correct a 
+discrete error set with support in the group $\Sigma$^n. Correctable errors are those that $anti$commute with any stabilzer in $S$. Uncorrectable, logical errors
+do commute with all stabilizers but are linearly independent of them. The objective of quantum error correction is therefore to correct the error up to a stabilizer.
+
+
+
+\subsection{CSS codes}
+Codes that have stabilizers which respectively only contain X- or Z- operators are called Calderbank, Shor and Steane (CSS) codes. 
+Their stabiliser matrix can be decomposed into the following form:
+\begin{equation}
+    H = 
+    \begin{pmatrix}
+    0 & H_z
+    H_x & 0
+    \end{pmatrix}
+\end{equation}
+The commutativity requirement for the stabilizers simplifies to checking that %H_x \cdot H_z^{T} = 0$ \ref{csscommutativtiy}
